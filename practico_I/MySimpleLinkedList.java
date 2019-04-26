@@ -52,5 +52,8 @@ public class MySimpleLinkedList {
     public Iterator<Object> iterator() {
 		return new MySimpleLinkedListIterator(this.first);
 	}
-
+	
+public boolean contiene(Object o){
+	return first.equals(o);	
+	}
 }
