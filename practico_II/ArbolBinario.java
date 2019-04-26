@@ -1,25 +1,60 @@
-public class ArbolBinario{
+package practico_2;
 
-public ArbolBinario(Nodo nodoRaiz){
-this.nodoRaiz = nodoRaiz;
-}
+import java.util.ArrayList;
+import java.util.List;
 
-    public void insert(Objecto o){
+public class ArbolBinario {
 
-        if(nodoRaiz != null){
-          if(o< this.nodoRaiz) ? this.nodoRaiz.hojaIzq.insert(o): this.nodoRaiz.hojaDer.insert(o) ;
-        }else{
-        Nodo nodoAux = new Nodo();
-        nodoAux.raiz = o;
-        nodoAux.hojaDer = new Nodo();
-        nodoAux.hojaIzq = new Nodo();
-        this.nodoRaiz = nodoAux;
-        }
-    }
-    
-    public List getFrontera(){
-    
-    }
-    
-    
+	private Nodo nodoRaiz;
+
+	public ArbolBinario(Nodo nodoRaiz) {
+		this.nodoRaiz = nodoRaiz;
+	}
+
+	public Nodo getNodoRaiz() {
+		return nodoRaiz;
+	}
+
+	public void setNodoRaiz(Nodo nodoRaiz) {
+		this.nodoRaiz = nodoRaiz;
+	}
+
+	public void insert(Nodo o) {
+		if (this.nodoRaiz != null) {
+			if (this.nodoRaiz.esMenor(o.raiz)) {
+				this.nodoRaiz.hojaIzq.insert(o);
+			} else {
+				this.nodoRaiz.hojaDer.insert(o);
+			}
+		} else {
+			Nodo nodoAux = new Nodo();
+			nodoAux.raiz = o.raiz;
+		}
+	}
+
+	public List<Nodo> getFrontera() {
+		List<Nodo> listAux = new ArrayList<>();
+		listAux.addAll(this.getInorder(this.nodoRaiz));
+		return listAux;
+	}
+
+	public List<Nodo> getInorder(Nodo o) {
+		List<Nodo> listAux = new ArrayList<>();
+		if (o == null) {
+			return listAux;
+		}
+		listAux.addAll(this.getPostorder(o.hojaIzq));
+		listAux.addAll(this.getPostorder(o.hojaDer));
+		return listAux;
+	}
+
+	public List<Nodo> getPostorder(Nodo o) {
+		List<Nodo> listAux = new ArrayList<>();
+		if (o == null) {
+			return listAux;
+		}
+		listAux.addAll(this.getPostorder(o.hojaIzq));
+		listAux.addAll(this.getPostorder(o.hojaDer));
+		return listAux;
+	}
 }
