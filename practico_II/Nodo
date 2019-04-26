@@ -1,9 +1,39 @@
+package practico_2;
+
 public class Nodo{
 public ArbolBinario hojaDer;
 public ArbolBinario hojaIzq;
-public Object raíz;
+public int raiz;
 
 public Nodo(){
+}
+
+public boolean esMenor(int i) {
+	return i < this.raiz;
+}
+
+public ArbolBinario getHojaDer() {
+	return hojaDer;
+}
+
+public void setHojaDer(ArbolBinario hojaDer) {
+	this.hojaDer = hojaDer;
+}
+
+public ArbolBinario getHojaIzq() {
+	return hojaIzq;
+}
+
+public void setHojaIzq(ArbolBinario hojaIzq) {
+	this.hojaIzq = hojaIzq;
+}
+
+public int getRaiz() {
+	return raiz;
+}
+
+public void setRaiz(int raiz) {
+	this.raiz = raiz;
 }
 
 }
