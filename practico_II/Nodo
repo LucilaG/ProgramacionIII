@@ -1,0 +1,9 @@
+public class Nodo{
+public ArbolBinario hojaDer;
+public ArbolBinario hojaIzq;
+public Object raíz;
+
+public Nodo(){
+}
+
+}
