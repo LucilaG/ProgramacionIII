@@ -56,8 +56,9 @@ public class main {
 		Iterator i = m1.iterator();
 		
 		while(i.hasNext()) {
-			if(!m2.contiene(i.next()))
-				salida.insertFront(i.next());
+			Object next = i.next();
+			if(!m2.contiene(next))
+				salida.insertFront(next);
 		}
 			
 		
